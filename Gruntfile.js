@@ -1,17 +1,14 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-	grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-mocha-istanbul');
 
-	grunt.initConfig({
-		mochaTest: {
-			test: {
-				options: {
-					reporter: 'spec'
-				},
-				src: ['test/**/*.js']
-			}
-		}
-	});
+  grunt.initConfig({
+    mocha_istanbul: {
+      coverage: {
+        src: 'test'
+      }
+    }
+  });
 
-	grunt.registerTask('test', ['mochaTest']);
+  grunt.registerTask('test', ['mocha_istanbul:coverage']);
 };
